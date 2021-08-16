@@ -1,0 +1,11 @@
+#!/bin/bash
+
+CURRENT_DIR="`pwd`";cd "`dirname \"$0\"`";SCRIPT_DIR="`pwd`";cd "$CURRENT_DIR"
+
+source "$SCRIPT_DIR"/base
+source "$SCRIPT_DIR"/config
+
+DOCKER_BUILD_TAG_BASE="$DOCKER_ID/$DOCKER_REPOSITORY"
+DOCKER_BUILD_TAG_CURRENT="$DOCKER_BUILD_TAG_BASE:${STORBACKUP_VERSION}_${DOCKER_IMAGE_VERSION}_$DOCKER_IMAGE_REVERSION"
+
+docker container run --interactive --tty --env TIMEZONE=Europe/Berlin "$DOCKER_BUILD_TAG_CURRENT"

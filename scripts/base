@@ -1,0 +1,6 @@
+BASE_DIR="$SCRIPT_DIR"/..
+DOCKERBUILD_DIR="$BASE_DIR"/docker-build
+DOCKERFILE_TEMPLATE="$SCRIPT_DIR"/Dockerfile.template
+DOCKERFILE="$DOCKERBUILD_DIR"/Dockerfile
+
+TARFILE_DIR="$BASE_DIR"/dockerimages
