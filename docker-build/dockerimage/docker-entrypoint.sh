@@ -10,23 +10,6 @@ _echo_error ()
   echo "Error: $@"
 }
 
-_notice ()
-{
-  _echo_info
-  _echo_info '###########################################################'
-  _echo_info '###########################################################'
-  _echo_info '##                                                       ##'
-  _echo_info '##  Please be sure to note that you must create          ##'
-  _echo_info '##  the target directory yourself before starting        ##'
-  _echo_info "##  \`storeBackup\` the first time!                        ##"
-  _echo_info '##                                                       ##'
-  _echo_info "##  Unfortunately, \`storeBackup\` cannot do this itself.  ##"
-  _echo_info '##                                                       ##'
-  _echo_info '###########################################################'
-  _echo_info '###########################################################'
-  _echo_info
-}
-
 _usage ()
 {
   _echo_info
@@ -295,9 +278,6 @@ _continous ()
       # start the `cron` daemon
       __start_cron
 
-      # show target dir notice
-      _notice
-
       # catch docker signals:
       # docker stop = SIGTERM
       _echo_info 'traping docker signals'
@@ -316,9 +296,6 @@ _continous ()
 _run ()
 {
   _echo_info 'running once…'
-
-  # show target dir notice
-  _notice
 
   PID="`_get_storebackup_pid`"
   if [ -n "$PID" ]
@@ -411,9 +388,6 @@ _unknown ()
 {
   # show usage
   _usage
-
-  # show target dir notice
-  _notice
 }
 
 
