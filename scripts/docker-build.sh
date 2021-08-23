@@ -18,4 +18,4 @@ sed -e "s/<IMAGE_BUILD_DATE>/$BUILD_DATE/" \
     >"$DOCKERFILE"
 
 docker image rm "$DOCKER_BUILD_TAG_CURRENT" "$DOCKER_BUILD_TAG_LATEST"
-docker image build --tag "$DOCKER_BUILD_TAG_CURRENT" --tag "$DOCKER_BUILD_TAG_LATEST" "$DOCKERBUILD_DIR"
+docker image build --tag "$DOCKER_BUILD_TAG_CURRENT" --tag "$DOCKER_BUILD_TAG_LATEST" --no-cache --pull "$DOCKERBUILD_DIR"
